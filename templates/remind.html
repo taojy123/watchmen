@@ -1,0 +1,125 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>提醒记录</title>
+    <link rel="stylesheet" href="/static/css/pure-min.css">
+    <link rel="stylesheet" href="/static/css/baby-blue.css">
+    <link rel="stylesheet" href="/static/css/tablesorter/blue/style.css" type="text/css" media="print, projection, screen" />
+    <script type="text/javascript" src="/static/js/jquery-1.4.3.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.tablesorter.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //表格显示
+            $("#myTable").tablesorter({
+                widgets: ['zebra']
+            })
+
+            {% if org %}
+                $(".pure-menu li").removeClass("pure-menu-selected")
+                $("#remind_{{ org }}").addClass("pure-menu-selected")
+            {% endif %}
+
+        })
+    </script>
+</head>
+
+<body>
+
+
+
+<div class="pure-g-r" id="layout" style="letter-spacing:0">
+
+    <div class="pure-u" id="menu">
+        <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="/" style="text-transform:capitalize" >WatchMen</a>
+
+            <ul>
+                <li class="">
+                    <a href="/">足彩监控</a>
+                </li>
+
+                <li class=" ">
+                    <a href="/unread/">未读提醒</a>
+                </li>
+
+                <li class="pure-menu-selected ">
+                    <a href="/remind/">提醒记录</a>
+                </li>
+
+                <li class="menu-item-divided" id="remind_WD">
+                    <a href="/remind/?org=WD">韦德提醒</a>
+                </li>
+
+                <li class=" " id="remind_YS">
+                    <a href="/remind/?org=YS" >易胜提醒</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="right">
+
+        <div class="header">
+            <h1>提醒记录</h1>
+        </div>
+
+        <div id="content" style="margin-top: 30px">
+
+
+            <div id=tab>
+                <table id="myTable" class="tablesorter" style="border-collapse: separate; border-spacing:1px;">
+
+                    <thead>
+                    <tr>
+                        <th>赛事编号</th>
+                        <th>比赛类别</th>
+                        <th>开场时间</th>
+                        <th>主队</th>
+                        <th>客队</th>
+                        <th>博彩公司</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for r in rs %}
+                        <tr id="r.id">
+                            {% if r.is_read %}
+                                <td>{{ r.mid }}</td>
+                            {% else %}
+                                <td style="color: red">{{ r.mid }}</td>
+                            {% endif %}
+                            <td>{{ r.mtype }}</td>
+                            <td>{{ r.btime }}</td>
+                            <td>{{ r.team1 }}</td>
+                            <td>{{ r.team2 }}</td>
+                            <td>{{ r.out_org }}</td>
+                            <td>
+                                <a href="{{ r.url }}" target="_blank">查看</a>
+                                &nbsp;&nbsp;
+                                <a href="/delete/?id={{ r.id }}">删除</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <button onclick="if(confirm('确定全部删除?'))top.location='/delete/?id=all'" class="pure-button pure-button-primary">全部删除</button>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

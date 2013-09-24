@@ -1,0 +1,109 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>未读提醒</title>
+    <link rel="stylesheet" href="/static/css/pure-min.css">
+    <link rel="stylesheet" href="/static/css/baby-blue.css">
+    <link rel="stylesheet" href="/static/css/tablesorter/blue/style.css" type="text/css" media="print, projection, screen" />
+    <script type="text/javascript" src="/static/js/jquery-1.4.3.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.tablesorter.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //表格显示
+            $("#myTable").tablesorter({
+                widgets: ['zebra']
+            })
+        })
+    </script>
+</head>
+
+<body>
+
+
+<div class="pure-g-r" id="layout" style="letter-spacing:0">
+
+    <div class="pure-u" id="menu">
+        <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="/" style="text-transform:capitalize" >WatchMen</a>
+
+            <ul>
+                <li class="">
+                    <a href="/">足彩监控</a>
+                </li>
+
+                <li class="pure-menu-selected">
+                    <a href="/unread/">未读提醒</a>
+                </li>
+
+                <li class="">
+                    <a href="/remind/">提醒记录</a>
+                </li>
+
+                <li class="menu-item-divided">
+                    <a href="/remind/?org=WD">韦德提醒</a>
+                </li>
+
+                <li class=" ">
+                    <a href="/remind/?org=YS">易胜提醒</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="right">
+
+        <div class="header">
+            <h1>未读提醒</h1>
+        </div>
+
+        <div id="content" style="margin-top: 30px">
+
+
+            <div id=tab>
+                <table id="myTable" class="tablesorter" style="border-collapse: separate; border-spacing:1px;">
+
+                    <thead>
+                    <tr>
+                        <th>赛事编号</th>
+                        <th>比赛类别</th>
+                        <th>开场时间</th>
+                        <th>主队</th>
+                        <th>客队</th>
+                        <th>博彩公司</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for r in rs %}
+                        <tr>
+                            <td>{{ r.mid }}</td>
+                            <td>{{ r.mtype }}</td>
+                            <td>{{ r.btime }}</td>
+                            <td>{{ r.team1 }}</td>
+                            <td>{{ r.team2 }}</td>
+                            <td>{{ r.out_org }}</td>
+                            <td>
+                                <a href="{{ r.url }}" target="_blank">查看</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+</body>
+
+</html>

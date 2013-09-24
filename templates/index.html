@@ -1,0 +1,200 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>足彩监控系统</title>
+    <link rel="stylesheet" href="/static/css/pure-min.css">
+    <link rel="stylesheet" href="/static/css/baby-blue.css">
+    <link rel="stylesheet" href="/static/css/cupertino/jquery-ui-1.10.0.custom.css">
+    <link rel="stylesheet" href="/static/css/tablesorter/blue/style.css" type="text/css" media="print, projection, screen" />
+    <script type="text/javascript" src="/static/js/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-ui-1.10.0.custom.js"></script>
+    <script type="text/javascript">
+
+
+        $(function(){
+            $("#dia").dialog({
+                autoOpen : false,
+                title : "请注意以下场次提醒" ,
+                width : 600 ,
+                height : 600
+            })
+            //$("#check_WD").click()
+            //$("#check_YS").click()
+
+            $("#manual_scan").click(function(){
+
+                $("#waiting").show()
+                $("#msg").html("正在扫描数据中,请耐心等待...")
+                var gap = $("#gap").val()
+                $.ajax({
+                    url:"/manual_scan/?gap=" + gap ,
+                    type:"get",
+                    error:function(){
+                        alert("启动失败,请重试")
+                        $("#waiting").hide()
+                        $("#msg").html("就绪")
+                    },
+                    success:function(msg){
+                        $("#waiting").hide()
+                        $("#msg").html("完成")
+
+                        var remind_str = ""
+                        if ($("#check_WD")[0].checked){
+                            remind_str = remind_str + msg.split("<br/>")[0]
+                        }
+                        if ($("#check_YS")[0].checked){
+                            remind_str = remind_str + msg.split("<br/>")[1]
+                        }
+                        if (remind_str){
+                            $("#remind_list").html(remind_str)
+                            $('#dia').dialog('open')
+                        }
+                    }
+                })
+
+            })
+
+            function sacn(email, interval){
+                $("#waiting").show()
+                $("#msg").html("正在扫描数据中,请耐心等待...")
+                var gap = $("#gap").val()
+                $.ajax({
+                    url:"/manual_scan/?email="+email+"gap=" + gap ,
+                    type:"get",
+                    error:function(){
+                        $("#waiting").hide()
+                        $("#msg").html("遇到错误终止,等待下一次扫描")
+                    },
+                    success:function(msg){
+                        $("#waiting").hide()
+                        $("#msg").html("完成,等待下一次扫描")
+
+                        var remind_str = ""
+                        if ($("#check_WD")[0].checked){
+                            remind_str = remind_str + msg.split("<br/>")[0]
+                        }
+                        if ($("#check_YS")[0].checked){
+                            remind_str = remind_str + msg.split("<br/>")[1]
+                        }
+                        if (remind_str){
+                            $("#remind_list").html(remind_str)
+                            $('#dia').dialog('open')
+                        }
+
+                        setTimeout(function(){
+                            sacn(email, interval)
+                        },interval)
+
+                    }
+                })
+            }
+
+            $("#auto_scan").click(function(){
+                var interval = parseInt(prompt("请输入自动扫描的时间间隔(分钟)"))
+                if (interval>2){
+                    var email = prompt("请输入接收提醒的邮箱地址")
+                    alert("系统将每隔"+interval+"分钟自动扫描一次数据,如发现新的提醒将发送至您的邮箱"+email+",点击确认开始.")
+                    sacn(email, interval*60000)
+                }
+                else{
+                    alert("建议填写5分钟以上的间隔")
+                }
+            })
+
+            $("#continue_scan").click(function(){
+                var email = prompt("请输入接收提醒的邮箱地址")
+                alert("系统将不间断扫描数据,如发现新的提醒将发送至您的邮箱"+email+",点击确认开始.")
+                sacn(email, 5000)
+            })
+
+
+        })
+    </script>
+</head>
+
+<body>
+
+
+<div class="pure-g-r" id="layout" style="letter-spacing:0">
+
+    <div class="pure-u" id="menu">
+        <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="/" style="text-transform:capitalize" >WatchMen</a>
+
+            <ul>
+                <li class="pure-menu-selected ">
+                    <a href="/">足彩监控</a>
+                </li>
+
+                <li class=" ">
+                    <a href="/unread/" target="_blank">未读提醒</a>
+                </li>
+
+                <li class="">
+                    <a href="/remind/" target="_blank">提醒记录</a>
+                </li>
+
+                <li class="menu-item-divided">
+                    <a href="/remind/?org=WD" target="_blank">韦德提醒</a>
+                </li>
+
+                <li class=" ">
+                    <a href="/remind/?org=YS" target="_blank">易胜提醒</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="right">
+
+        <div class="header">
+            <h1>足彩监控</h1>
+        </div>
+
+        <div id="content" style="text-align: center;margin-top: 30px">
+
+            <p>
+                监控扫描过程中提醒：
+                韦德
+                <input type="checkbox" id="check_WD" checked />
+                易胜
+                <input type="checkbox" id="check_YS" checked />
+            </p>
+
+            <p>
+                判定差值：
+                <input type="text" id="gap" value="0.2" style="width: 35px"/>
+            </p>
+
+            <button id="manual_scan" class="pure-button pure-button-primary">手动扫描一次</button>
+            <button id="auto_scan" class="pure-button pure-button-primary">开始自动扫描</button>
+            <button id="continue_scan" class="pure-button pure-button-primary">开始连续扫描</button>
+            <button class="pure-button" onclick="if(confirm('确定清空所有数据？')){top.location='/clear/'}">清空所有数据</button>
+
+            <p id="msg"></p>
+            <div id="waiting" style="display: none">
+                <img src="/static/image/waiting.gif" width="250" height="20"/>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+<div id="dia">
+    <div id="remind_list"></div>
+</div>
+
+
+
+</body>
+
+</html>
