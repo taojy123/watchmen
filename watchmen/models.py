@@ -14,19 +14,23 @@ class Remind(models.Model):
 
     @property
     def out_str(self):
-        if self.org == "WD":
-            org = u"韦德"
-        else:
+        if self.org == "BET":
+            org = u"BET"
+        elif self.org == "YS":
             org = u"易胜"
+        else:
+            org = u"--"
         s = "%s, %s, %s, %s, %s." % (self.mtype, self.btime, self.team1, self.team2, org)
         return s
 
     @property
     def out_org(self):
-        if self.org == "WD":
-            org = u"韦德"
-        else:
+        if self.org == "BET":
+            org = u"BET"
+        elif self.org == "YS":
             org = u"易胜"
+        else:
+            org = u"--"
         return org
 
 

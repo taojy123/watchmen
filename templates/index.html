@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>足彩监控系统</title>
+    <title>足彩监控系统_v1.1</title>
     <link rel="stylesheet" href="/static/css/pure-min.css">
     <link rel="stylesheet" href="/static/css/baby-blue.css">
     <link rel="stylesheet" href="/static/css/cupertino/jquery-ui-1.10.0.custom.css">
@@ -13,11 +13,19 @@
 
 
         $(function(){
-            $("#dia").dialog({
+            $("#dia_A").dialog({
                 autoOpen : false,
-                title : "请注意以下场次提醒" ,
+                title : "请注意以下场次盘口不一致" ,
                 width : 600 ,
-                height : 600
+                height : 600,
+                position : ["left", "bottom"]
+            })
+            $("#dia_B").dialog({
+                autoOpen : false,
+                title : "请注意以下场次差值过大" ,
+                width : 600 ,
+                height : 600,
+                position : ["right", "bottom"]
             })
             //$("#check_WD").click()
             //$("#check_YS").click()
@@ -39,16 +47,23 @@
                         $("#waiting").hide()
                         $("#msg").html("完成")
 
-                        var remind_str = ""
+                        var remind_str_A = ""
+                        var remind_str_B = ""
                         if ($("#check_WD")[0].checked){
-                            remind_str = remind_str + msg.split("<br/>")[0]
+                            remind_str_A = remind_str_A + msg.split("/////")[0]
+                            remind_str_B = remind_str_B + msg.split("/////")[1]
                         }
                         if ($("#check_YS")[0].checked){
-                            remind_str = remind_str + msg.split("<br/>")[1]
+                            remind_str_A = remind_str_A + msg.split("/////")[2]
+                            remind_str_B = remind_str_B + msg.split("/////")[3]
                         }
-                        if (remind_str){
-                            $("#remind_list").html(remind_str)
-                            $('#dia').dialog('open')
+                        if (remind_str_A){
+                            $("#remind_list_A").html(remind_str_A)
+                            $('#dia_A').dialog('open')
+                        }
+                        if (remind_str_B){
+                            $("#remind_list_B").html(remind_str_B)
+                            $('#dia_B').dialog('open')
                         }
                     }
                 })
@@ -60,7 +75,7 @@
                 $("#msg").html("正在扫描数据中,请耐心等待...")
                 var gap = $("#gap").val()
                 $.ajax({
-                    url:"/manual_scan/?email="+email+"gap=" + gap ,
+                    url:"/manual_scan/?email="+email+"&gap=" + gap ,
                     type:"get",
                     error:function(){
                         $("#waiting").hide()
@@ -70,16 +85,23 @@
                         $("#waiting").hide()
                         $("#msg").html("完成,等待下一次扫描")
 
-                        var remind_str = ""
+                        var remind_str_A = ""
+                        var remind_str_B = ""
                         if ($("#check_WD")[0].checked){
-                            remind_str = remind_str + msg.split("<br/>")[0]
+                            remind_str_A = remind_str_A + msg.split("/////")[0]
+                            remind_str_B = remind_str_B + msg.split("/////")[1]
                         }
                         if ($("#check_YS")[0].checked){
-                            remind_str = remind_str + msg.split("<br/>")[1]
+                            remind_str_A = remind_str_A + msg.split("/////")[2]
+                            remind_str_B = remind_str_B + msg.split("/////")[3]
                         }
-                        if (remind_str){
-                            $("#remind_list").html(remind_str)
-                            $('#dia').dialog('open')
+                        if (remind_str_A){
+                            $("#remind_list_A").html(remind_str_A)
+                            $('#dia_A').dialog('open')
+                        }
+                        if (remind_str_B){
+                            $("#remind_list_B").html(remind_str_B)
+                            $('#dia_B').dialog('open')
                         }
 
                         setTimeout(function(){
@@ -189,8 +211,12 @@
 </div>
 
 
-<div id="dia">
-    <div id="remind_list"></div>
+<div id="dia_A">
+    <div id="remind_list_A"></div>
+</div>
+
+<div id="dia_B">
+    <div id="remind_list_B"></div>
 </div>
 
 

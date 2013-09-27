@@ -129,7 +129,7 @@ def add_remind(mid, mtype, btime, team1, team2, org, url, email=""):
         rm.url = url
         rm.is_read = False
         rm.save()
-        winsound.MessageBeep(61)
+        winsound.PlaySound("static/beep.wav", 131072)
         if email:
             smtp = smtplib.SMTP()
             smtp.connect("smtp.163.com", "25")
@@ -188,6 +188,9 @@ def scan(email="", gap=0.2):
                 p = get_page(url)
                 sp = UglySoup.BeautifulSoup(p)
                 odds = sp.find("span", attrs={"id":"odds"})
+                if not odds:
+                    print "not data"
+                    continue
                 trs = odds.findAll("tr")
                 SB = trs[2]
                 WD = trs[3]
@@ -207,12 +210,12 @@ def scan(email="", gap=0.2):
                         if SB_PK != WD_PK:
                             x = max(abs(WD_ZD-SB_ZD), abs(WD_KD-SB_KD))
                             print mid, mtype, btime, team1, team2, x, "BET_A"
-                            remind_WD_A.append([u"<p><a href='%s' target='_blank' >%s, %s, %s, %s, %s, BET.</a></p>" % (url, mtype, btime, team1, team2, x), x])
+                            remind_WD_A.append([x, u"<p><a href='%s' target='_blank' >%s, %s, %s, %s, %s, BET.</a></p>" % (url, mtype, btime, team1, team2, x)])
                             add_remind(mid, mtype, btime, team1, team2, "BET", url, email)
                         elif WD_ZD-SB_ZD>gap or WD_KD-SB_KD>gap:
                             x = max(WD_ZD-SB_ZD, WD_KD-SB_KD)
                             print mid, mtype, btime, team1, team2, x, "BET_B"
-                            remind_WD_B.append([u"<p><a href='%s' target='_blank' >%s, %s, %s, %s, %s, BET.</a></p>" % (url, mtype, btime, team1, team2, x), x])
+                            remind_WD_B.append([x, u"<p><a href='%s' target='_blank' >%s, %s, %s, %s, %s, BET.</a></p>" % (url, mtype, btime, team1, team2, x)])
                             add_remind(mid, mtype, btime, team1, team2, "BET", url, email)
                     if YS_PK:
                         YS_ZD = float(YS[4].getText())
@@ -220,12 +223,12 @@ def scan(email="", gap=0.2):
                         if SB_PK != YS_PK:
                             x = max(abs(YS_ZD-SB_ZD), abs(YS_KD-SB_KD))
                             print mid, mtype, btime, team1, team2, x, "YS_A"
-                            remind_YS_A.append([u"<p><a href='%s' target='_blank' >%s, %s, %s, %s, %s, 易胜.</a></p>" % (url, mtype, btime, team1, team2, x), x])
+                            remind_YS_A.append([x, u"<p><a href='%s' target='_blank' >%s, %s, %s, %s, %s, 易胜.</a></p>" % (url, mtype, btime, team1, team2, x)])
                             add_remind(mid, mtype, btime, team1, team2, "YS", url, email)
                         elif YS_ZD-SB_ZD>gap or YS_KD-SB_KD>gap:
                             x = max(YS_ZD-SB_ZD, YS_KD-SB_KD)
                             print mid, mtype, btime, team1, team2, x, "YS_B"
-                            remind_YS_B.append([u"<p><a href='%s' target='_blank' >%s, %s, %s, %s, %s, 易胜.</a></p>" % (url, mtype, btime, team1, team2, x), x])
+                            remind_YS_B.append([x, u"<p><a href='%s' target='_blank' >%s, %s, %s, %s, %s, 易胜.</a></p>" % (url, mtype, btime, team1, team2, x)])
                             add_remind(mid, mtype, btime, team1, team2, "YS", url, email)
 
         except:
@@ -233,6 +236,31 @@ def scan(email="", gap=0.2):
             traceback.print_exc()
 
     print "scan finish"
+
+    remind_WD_A.sort()
+    remind_WD_B.sort()
+    remind_YS_A.sort()
+    remind_YS_B.sort()
+    remind_WD_B = remind_WD_B[::-1]
+    remind_YS_B = remind_YS_B[::-1]
+
+    remind_WD_A = [r[1] for r in remind_WD_A]
+    remind_WD_B = [r[1] for r in remind_WD_B]
+    remind_YS_A = [r[1] for r in remind_YS_A]
+    remind_YS_B = [r[1] for r in remind_YS_B]
+
+    remind_WD_A = "".join(remind_WD_A)
+    remind_WD_B = "".join(remind_WD_B)
+    remind_YS_A = "".join(remind_YS_A)
+    remind_YS_B = "".join(remind_YS_B)
+
+    print "-----------------"
+    print remind_WD_A
+    print remind_WD_B
+    print remind_YS_A
+    print remind_YS_B
+    print "-----------------"
+
     return remind_WD_A, remind_WD_B, remind_YS_A, remind_YS_B
 
 

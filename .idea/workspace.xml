@@ -32,25 +32,42 @@
       <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/watchmen/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="35" selection-start="753" selection-end="753" vertical-scroll-proportion="0.0">
+            <state line="32" column="23" selection-start="1067" selection-end="1067" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/watchmen/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="42" selection-start="717" selection-end="717" vertical-scroll-proportion="-2.8711865">
-              <folding />
+            <state line="266" column="52" selection-start="9387" selection-end="9387" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#25#83#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="56" selection-start="2950" selection-end="2950" vertical-scroll-proportion="-11.225806">
+            <state line="3" column="22" selection-start="63" selection-end="74" vertical-scroll-proportion="0.103286386">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#p#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery-ui-1.10.0.custom.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/cupertino/jquery-ui-1.10.0.custom.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="17" selection-start="2700" selection-end="2700" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -59,7 +76,7 @@
       <file leaf-file-name="unread.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/unread.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="30" selection-start="1302" selection-end="1302" vertical-scroll-proportion="-1.6790123">
+            <state line="41" column="30" selection-start="1302" selection-end="1302" vertical-scroll-proportion="-29.096775">
               <folding />
             </state>
           </provider>
@@ -68,9 +85,9 @@
       <file leaf-file-name="remind.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/remind.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="21" selection-start="1343" selection-end="1343" vertical-scroll-proportion="-23.419355">
+            <state line="42" column="21" selection-start="1343" selection-end="1343" vertical-scroll-proportion="24.387096">
               <folding>
-                <marker date="1380115070000" expanded="true" signature="779:786" placeholder="{...}" />
+                <marker date="1380245149225" expanded="true" signature="779:786" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -88,21 +105,22 @@
       <list>
         <option value="$PROJECT_DIR$/watchmen/FB_spider.py" />
         <option value="$PROJECT_DIR$/../InfoSearch/templates/index.html" />
-        <option value="$PROJECT_DIR$/watchmen/models.py" />
         <option value="$USER_HOME$/Desktop/a.html" />
         <option value="$PROJECT_DIR$/watchmen/urls.py" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/unread.html" />
         <option value="$PROJECT_DIR$/templates/remind.html" />
+        <option value="$PROJECT_DIR$/watchmen/models.py" />
+        <option value="$PROJECT_DIR$/static/css/cupertino/jquery-ui-1.10.0.custom.css" />
         <option value="$PROJECT_DIR$/watchmen/views.py" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -130,6 +148,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -189,6 +208,20 @@
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="watchmen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="watchmen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -230,19 +263,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="watchmen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="watchmen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cupertino" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="preferences.sourceCode" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="preferences.sourceCode" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -311,18 +366,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2659091" sideWeight="0.67045456" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22678763" sideWeight="0.75816995" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27597404" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24183007" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -386,32 +441,11 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/unread.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="76" selection-start="2716" selection-end="2716" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/watchmen/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="13" selection-start="4434" selection-end="4434" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/unread.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="54" selection-start="3056" selection-end="3056" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/remind.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="108" column="51" selection-start="3491" selection-end="3491" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1380115070000" expanded="true" signature="779:786" placeholder="{...}" />
+            <marker date="1380245149225" expanded="true" signature="779:786" placeholder="{...}" />
           </folding>
         </state>
       </provider>
@@ -419,7 +453,13 @@
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="123" column="70" selection-start="3765" selection-end="3765" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#p#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -442,16 +482,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/cupertino/jquery-ui-1.10.0.custom.css">
+    <entry file="file://D:/Python26/Lib/site-packages/django-1.4-py2.6.egg/django/utils/importlib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="36" column="0" selection-start="1229" selection-end="1229" vertical-scroll-proportion="0.7934272">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/jquery-ui-1.10.0.custom.js">
+    <entry file="file://E:/GIT/klokah/klokahweb/klokahweb/public/easyui/jquery.dialog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="128" column="20" selection-start="3436" selection-end="3436" vertical-scroll-proportion="0.34585288">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/GIT/klokah/klokahweb/klokahweb/public/js/jquery-ui-1.10.0.custom.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="147300" selection-start="148279" selection-end="148279" vertical-scroll-proportion="0.07028754">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/watchmen/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="23" selection-start="1067" selection-end="1067" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -463,40 +517,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/watchmen/models.py">
+    <entry file="file://$PROJECT_DIR$/static/js/jquery-ui-1.10.0.custom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="35" selection-start="753" selection-end="753" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/unread.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="30" selection-start="1302" selection-end="1302" vertical-scroll-proportion="-1.6790123">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/remind.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="21" selection-start="1343" selection-end="1343" vertical-scroll-proportion="-23.419355">
-          <folding>
-            <marker date="1380115070000" expanded="true" signature="779:786" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="56" selection-start="2950" selection-end="2950" vertical-scroll-proportion="-11.225806">
+        <state line="12598" column="18" selection-start="376973" selection-end="376973" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/watchmen/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="42" selection-start="717" selection-end="717" vertical-scroll-proportion="-2.8711865">
+        <state line="266" column="52" selection-start="9387" selection-end="9387" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#25#83#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/remind.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="21" selection-start="1343" selection-end="1343" vertical-scroll-proportion="24.387096">
+          <folding>
+            <marker date="1380245149225" expanded="true" signature="779:786" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/cupertino/jquery-ui-1.10.0.custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="17" selection-start="2700" selection-end="2700" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/unread.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="30" selection-start="1302" selection-end="1302" vertical-scroll-proportion="-29.096775">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="22" selection-start="63" selection-end="74" vertical-scroll-proportion="0.103286386">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#p#1;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
