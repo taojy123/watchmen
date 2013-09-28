@@ -28,7 +28,8 @@ def index(request):
 def manual_scan(request):
     email =  request.REQUEST.get('email', '')
     gap =  float(request.REQUEST.get('gap', 0.2))
-    remind_WD_A, remind_WD_B, remind_YS_A, remind_YS_B = scan(email, gap)
+    no_sound =  request.REQUEST.get('no_sound', 'false')
+    remind_WD_A, remind_WD_B, remind_YS_A, remind_YS_B = scan(email, gap, no_sound)
     return HttpResponse( remind_WD_A + "/////" + remind_WD_B + "/////" + remind_YS_A + "/////" + remind_YS_B )
 
 def unread(request):
@@ -117,7 +118,8 @@ def get_page(url, data=None):
     return "Null"
 
 
-def add_remind(mid, mtype, btime, team1, team2, org, url, email=""):
+def add_remind(mid, mtype, btime, team1, team2, org, url, email="", no_sound="false"):
+    print no_sound
     if not Remind.objects.filter(mid=mid, org=org):
         rm = Remind()
         rm.mid = mid
@@ -129,7 +131,8 @@ def add_remind(mid, mtype, btime, team1, team2, org, url, email=""):
         rm.url = url
         rm.is_read = False
         rm.save()
-        winsound.PlaySound("static/beep.wav", 131072)
+        if no_sound == "false":
+            winsound.PlaySound("static/beep.wav", 131072)
         if email:
             smtp = smtplib.SMTP()
             smtp.connect("smtp.163.com", "25")
@@ -141,7 +144,7 @@ def add_remind(mid, mtype, btime, team1, team2, org, url, email=""):
 
 
 
-def scan(email="", gap=0.2):
+def scan(email="", gap=0.2, no_sound="false"):
     remind_WD_A = []
     remind_WD_B = []
     remind_YS_A = []
@@ -208,28 +211,28 @@ def scan(email="", gap=0.2):
                         WD_ZD = float(WD[4].getText())
                         WD_KD = float(WD[6].getText())
                         if SB_PK != WD_PK:
-                            x = max(abs(WD_ZD-SB_ZD), abs(WD_KD-SB_KD))
+                            x = min(abs(WD_ZD-SB_ZD), abs(WD_KD-SB_KD))
                             print mid, mtype, btime, team1, team2, x, "BET_A"
                             remind_WD_A.append([x, u"<p><a href='%s' target='_blank' >%s, %s, %s, %s, %s, BET.</a></p>" % (url, mtype, btime, team1, team2, x)])
-                            add_remind(mid, mtype, btime, team1, team2, "BET", url, email)
+                            add_remind(mid, mtype, btime, team1, team2, "BET", url, email, no_sound)
                         elif WD_ZD-SB_ZD>gap or WD_KD-SB_KD>gap:
                             x = max(WD_ZD-SB_ZD, WD_KD-SB_KD)
                             print mid, mtype, btime, team1, team2, x, "BET_B"
                             remind_WD_B.append([x, u"<p><a href='%s' target='_blank' >%s, %s, %s, %s, %s, BET.</a></p>" % (url, mtype, btime, team1, team2, x)])
-                            add_remind(mid, mtype, btime, team1, team2, "BET", url, email)
+                            add_remind(mid, mtype, btime, team1, team2, "BET", url, email, no_sound)
                     if YS_PK:
                         YS_ZD = float(YS[4].getText())
                         YS_KD = float(YS[6].getText())
                         if SB_PK != YS_PK:
-                            x = max(abs(YS_ZD-SB_ZD), abs(YS_KD-SB_KD))
+                            x = min(abs(YS_ZD-SB_ZD), abs(YS_KD-SB_KD))
                             print mid, mtype, btime, team1, team2, x, "YS_A"
                             remind_YS_A.append([x, u"<p><a href='%s' target='_blank' >%s, %s, %s, %s, %s, 易胜.</a></p>" % (url, mtype, btime, team1, team2, x)])
-                            add_remind(mid, mtype, btime, team1, team2, "YS", url, email)
+                            add_remind(mid, mtype, btime, team1, team2, "YS", url, email, no_sound)
                         elif YS_ZD-SB_ZD>gap or YS_KD-SB_KD>gap:
                             x = max(YS_ZD-SB_ZD, YS_KD-SB_KD)
                             print mid, mtype, btime, team1, team2, x, "YS_B"
                             remind_YS_B.append([x, u"<p><a href='%s' target='_blank' >%s, %s, %s, %s, %s, 易胜.</a></p>" % (url, mtype, btime, team1, team2, x)])
-                            add_remind(mid, mtype, btime, team1, team2, "YS", url, email)
+                            add_remind(mid, mtype, btime, team1, team2, "YS", url, email, no_sound)
 
         except:
             print "=========warning========", m[0]

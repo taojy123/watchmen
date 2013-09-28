@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <title>足彩监控系统_v1.1</title>
@@ -36,7 +36,7 @@
                 $("#msg").html("正在扫描数据中,请耐心等待...")
                 var gap = $("#gap").val()
                 $.ajax({
-                    url:"/manual_scan/?gap=" + gap ,
+                    url:"/manual_scan/?gap=" + gap  + "&no_sound=" + $("#no_sound")[0].checked ,
                     type:"get",
                     error:function(){
                         alert("启动失败,请重试")
@@ -75,7 +75,7 @@
                 $("#msg").html("正在扫描数据中,请耐心等待...")
                 var gap = $("#gap").val()
                 $.ajax({
-                    url:"/manual_scan/?email="+email+"&gap=" + gap ,
+                    url:"/manual_scan/?email="+email + "&gap=" + gap + "&no_sound=" + $("#no_sound")[0].checked ,
                     type:"get",
                     error:function(){
                         $("#waiting").hide()
@@ -158,7 +158,7 @@
                 </li>
 
                 <li class="menu-item-divided">
-                    <a href="/remind/?org=WD" target="_blank">BET提醒</a>
+                    <a href="/remind/?org=BET" target="_blank">BET提醒</a>
                 </li>
 
                 <li class=" ">
@@ -184,6 +184,8 @@
                 <input type="checkbox" id="check_WD" checked />
                 易胜
                 <input type="checkbox" id="check_YS" checked />
+                静音
+                <input type="checkbox" id="no_sound" />
             </p>
 
             <p>
